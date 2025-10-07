@@ -1,12 +1,13 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
-	
-	let { children } = $props();
-	import "../app.css";
+	// No need for $props() destructuring here; SvelteKit uses <slot /> for content
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children?.()}
+<!-- Responsive layout wrapper -->
+<div class="max-w-screen-xl mx-auto px-4 overflow-x-hidden">
+	<slot />
+</div>
