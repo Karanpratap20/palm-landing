@@ -11,6 +11,6 @@ export default defineConfig({
 
 export default {
   build: {
-    outDir: 'dist' // <-- This is your publish directory
+    outDir: 'dist' 
   }
 }
