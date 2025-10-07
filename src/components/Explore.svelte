@@ -1,99 +1,136 @@
 <script>
+    import { onMount } from 'svelte';
+
     // Data for the "Explore" cards. 
-    // Replace image paths with your actual image files.
     const exploreItems = [
         {
             label: 'Best Time to Visit Mukteshwar',
-            imageSrc: '/explore/mukteshwar-view.jpeg',
+            imageSrc: 'https://media.moustachescapes.com/LocalAttraction/1745912501_681082b5036bd.jpg',
             imageAlt: 'Scenic mountain range with clear blue skies in Mukteshwar',
-            description: 'Mukteshwar is most pleasant during summer. Clear skies, blooming flowers, and cool breezes make it perfect for relaxing.',
+            description: 'Mukteshwar is most pleasant during summer. Clear skies, blooming flowers, and cool breezes make it perfect for sightseeing, trekking, and enjoying fresh fruits from local orchards.',
             link: '/best-time-to-visit'
         },
         {
             label: 'Famous Food in Mukteshwar',
-            imageSrc: '/explore/kumaoni-food.jpg',
+            imageSrc: 'https://media.moustachescapes.com/LocalAttraction/1745912641_681083416b376.jpg',
             imageAlt: 'A bowl of traditional Kumaoni-style potato dish',
-            description: 'A spicy Kumaoni-style potato dish, lightly fried with mustard seeds and spices. It’s a popular street food and a must-try for foodies.',
+            description: 'A spicy Kumaoni-style potato dish, lightly fried with mustard seeds and spices. It’s a popular street food and a must-try for anyone visiting Mukteshwar.',
             link: '/famous-food'
         },
         {
             label: 'Best Places to Visit in Mukteshwar',
-            imageSrc: '/explore/waterfall.jpeg',
+            imageSrc: 'https://media.moustachescapes.com/LocalAttraction/1745912823_681083f76b2a7.jpg',
             imageAlt: 'A beautiful waterfall cascading down rocks in a lush green forest',
-            description: 'A 350-year-old Shiva temple perched atop a hill, offering spiritual bliss and panoramic Himalayan views. It’s one of the most serene spots.',
+            description: 'A 350-year-old Shiva temple perched atop a hill, offering spiritual bliss and panoramic Himalayan views. It’s one of the most sacred and visited places in Mukteshwar.',
             link: '/best-places'
+        },
+        {
+            label: 'Religious Places to Visit',
+            imageSrc: 'https://media.moustachescapes.com/LocalAttraction/1745912951_68108477af85f.jpg',
+            imageAlt: 'An ancient temple in Mukteshwar',
+            description: 'The Mukteshwar Dham Temple, dedicated to Lord Shiva, is one of the most revered sites in the area. It offers panoramic views of the Himalayas and is known for its spiritual significance.',
+            link: '/religious-places'
         }
     ];
+
+    let sliderContainer;
+    let cardWidth = 0;
+    let activeIndex = 0;
+
+    onMount(() => {
+        if (sliderContainer && sliderContainer.children.length > 0) {
+            // Calculate the width of a single card for scrolling
+            const firstCard = sliderContainer.children[0];
+            cardWidth = firstCard.offsetWidth;
+        }
+    });
+
+    function scrollToCard(index) {
+        activeIndex = index;
+        if (sliderContainer) {
+            sliderContainer.scrollTo({
+                left: index * cardWidth,
+                behavior: 'smooth'
+            });
+        }
+    }
 </script>
 
 <style>
-    /* Custom styles to achieve the ticket-like vertical text and background pattern */
-    .vertical-text {
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transform: rotate(180deg);
+    .hidden-escape-background {
+        background-image: url('/explore/hidden.png');
+        background-size: cover;
+        background-position: center;
     }
-
-    /* Note: For the background, you'll need a seamless stamp pattern image. */
-    /* I'm using a placeholder color here. Replace with your image URL. */
-    .stamp-background {
-        background-color: #1a202c; /* Fallback color */
-        /* background-image: url('/path/to/your/stamp-pattern.png'); */
-        background-repeat: repeat;
-        background-size: 400px;
+    /* Hide scrollbar */
+    .rm-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .rm-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
     }
 </style>
 
-<section class="stamp-background relative overflow-hidden py-16 md:py-24 text-white">
-    <!-- Large, semi-transparent text in the background -->
-    <div class="absolute inset-0 flex items-center justify-center">
-        <h2 class="text-7xl md:text-9xl font-extrabold text-white/5 uppercase select-none">
-            Hidden Escape
-        </h2>
+<div class="w-full flex flex-col relative bg-white h-[550px] sm:h-[580px] lg:h-[600px] xl:h-[650px] 2xl:h-[700px]">
+    <div class="absolute bottom-0 left-0 right-0 h-1/2 z-0 hidden-escape-background"></div>
+    
+    <div class="relative z-10 pt-8">
+        <div class="relative w-full flex items-center justify-center h-20 lg:h-32">
+            <p class="text-gray-200 text-[40px] sm:text-[50px] md:text-[58px] lg:text-[75px] xl:text-[100px] font-medium uppercase">
+                HIDDEN ESCAPE
+            </p>
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-fit flex items-center">
+                <div class="bg-blue-600 w-[15%] xl:w-[10%] h-6 xl:h-8"></div>
+                <p class="font-normal capitalize text-black text-2xl md:text-[28px] lg:text-[32px] xl:text-[42px] ml-4">
+                    There's More to Explore
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="container mx-auto px-4 relative z-10">
-        <!-- Section Title -->
-        <div class="flex items-center mb-12">
-            <span class="bg-blue-600 w-4 h-10 block"></span>
-            <h1 class="text-3xl md:text-5xl font-bold ml-4">There's More To Explore</h1>
-        </div>
-
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-            {#each exploreItems as item}
-                <div class="relative group">
-                    <!-- The ticket-stub style vertical label -->
-                    <div class="absolute -left-4 top-1/2 -translate-y-1/2 h-48 bg-blue-600 text-white font-semibold flex items-center justify-center p-2 rounded-r-lg shadow-lg">
-                        <span class="vertical-text text-sm tracking-wider uppercase">{item.label}</span>
+    <div class="rm-scrollbar z-10 w-full overflow-x-auto mt-8 md:mt-10">
+        <div class="w-full max-w-7xl mx-auto px-4">
+            <div bind:this={sliderContainer} class="flex duration-1000 ease-out w-fit snap-x snap-mandatory rm-scrollbar overflow-x-auto py-4">
+                
+                {#each exploreItems as item, i}
+                <div class="snap-center flex-shrink-0 w-[350px] xl:w-[450px] 2xl:w-[490px] px-8 md:px-16 relative h-[390px] 2xl:h-[420px]">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[250px] h-[250px] 2xl:w-[300px] 2xl:h-[300px] rounded-lg overflow-hidden shadow-lg">
+                        <img src={item.imageSrc} alt={item.imageAlt} class="w-full h-full object-cover" />
+                        <div class="absolute inset-2 border border-white/50 rounded-lg"></div>
                     </div>
 
-                    <!-- Main Card Content -->
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow-xl ml-8 transition-transform duration-300 group-hover:scale-105">
-                        <div class="p-4">
-                            <img src={item.imageSrc} alt={item.imageAlt} class="w-full h-48 object-cover rounded-md mb-4" />
-                            <p class="text-gray-300 text-sm leading-relaxed mb-4 h-24">
-                                {item.description}
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 h-[160px] w-[330px] 2xl:w-[400px]">
+                        <img src="/explore/ticket.png" alt="Ticket background" class="h-full w-full" />
+                        
+                        <div class="absolute left-[-29px] top-1/2 -translate-y-1/2 h-[50%] w-[40%] -rotate-90 flex items-center justify-center">
+                            <p class="text-gray-800 text-center font-medium text-sm 2xl:text-base">
+                                {item.label}
                             </p>
-                            <a href={item.link} class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-700/50 hover:bg-gray-600/70 border border-white/20 text-white rounded-full text-xs font-semibold transition-colors">
-                                <!-- Eye Icon SVG -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                                </svg>
-                                View
-                            </a>
+                        </div>
+                        
+                        <div class="absolute right-2 top-1 h-[95%] w-[70%] flex flex-col justify-between p-2">
+                            <div class="text-sm 2xl:text-base text-black font-light h-full max-h-[110px] overflow-hidden text-ellipsis">
+                                <p>{item.description}</p>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
-            {/each}
-        </div>
-
-        <!-- Pagination Dots -->
-        <div class="flex justify-center items-center gap-2 mt-12">
-            <button class="w-3 h-3 bg-blue-600 rounded-full"></button>
-            <button class="w-3 h-3 bg-white/30 hover:bg-white/50 rounded-full"></button>
-            <button class="w-3 h-3 bg-white/30 hover:bg-white/50 rounded-full"></button>
+                {/each}
+            </div>
         </div>
     </div>
-</section>
+    
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        {#each exploreItems as _, i}
+            <button
+                on:click={() => scrollToCard(i)}
+                class="h-3 w-3 rounded-full cursor-pointer transition-colors"
+                class:bg-blue-600={activeIndex === i}
+                class:bg-white={activeIndex !== i}
+                aria-label="Go to slide {i + 1}"
+            ></button>
+        {/each}
+    </div>
+</div>

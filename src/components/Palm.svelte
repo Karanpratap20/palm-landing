@@ -6,7 +6,7 @@
         description: `Convenient on-site parking ensures easy vehicle access. Nature lovers will appreciate peaceful nature walks with scenic views and fresh air. Located in the heart of Bhimtal, the hotel provides easy access to popular attractions like Bhimtal Lake, Victoria Dam, and the Folk Culture Museum. A complimentary welcome drink and in-room tea and coffee setup add an extra touch of hospitality. The hotel's location also makes it easy to explore unique spots like Aquarium Island, Hidimba Parvat, and Nal Damyanti Tal. Guests also have access to an exclusive lounge area for quiet reading or casual meetings. The Suite Room is an excellent choice for honeymooners, long-stay guests, or anyone looking to enjoy Bhimtal in luxury and style.`,
         images: [
             {
-                src: '/hotel/delux.jpeg',
+                src: '/hotel/balconyView.jpeg',
                 alt: 'A scenic view from a hotel balcony with lush green trees.'
             },
             {
@@ -21,30 +21,27 @@
     /* Scoped styles for any custom adjustments if needed */
 </style>
 
-<section class="bg-gray-200 py-12 md:py-20">
+<section id="palm" class="bg-gray-200 py-12 md:py-20">
     <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-24">
 
-            <!-- Image Column with Overlapping Effect -->
-            <div class="w-full md:w-5/12 lg:w-4/12">
-                <!-- Relative container to position the images -->
-                <div class="relative h-64 sm:h-80 md:h-96">
-                    <!-- Back Image -->
+            <div class="w-full md:w-5/12 lg:w-4/12 md:mr-12">
+                <div class="relative h-80 sm:h-96">
+
                     <img 
                         src={aboutContent.images[0].src} 
                         alt={aboutContent.images[0].alt}
-                        class="absolute top-0 left-0 w-4/5 h-4/5 object-cover rounded-xl shadow-lg transform -rotate-3 transition-transform duration-300 hover:rotate-0"
+                        class="absolute left-0 top-0 w-full h-full object-cover rounded-xl shadow-lg"
                     />
-                    <!-- Front Image -->
+                    
                     <img 
                         src={aboutContent.images[1].src} 
                         alt={aboutContent.images[1].alt}
-                        class="absolute bottom-0 right-0 w-3/4 h-3/4 object-cover rounded-xl shadow-2xl border-4 border-white transform rotate-3 transition-transform duration-300 hover:rotate-0"
+                        class="absolute right-0 top-1/2 w-10/12 h-3/5 transform translate-x-[30%] -translate-y-1/2 object-cover rounded-xl shadow-2xl border-4 border-white"
                     />
                 </div>
             </div>
 
-            <!-- Text Content Column -->
             <div class="w-full md:w-6/12 text-left">
                 <h1 class="text-lg md:text-xl font-bold text-gray-800 tracking-widest uppercase">
                     {aboutContent.title}
@@ -67,4 +64,3 @@
         </div>
     </div>
 </section>
-
