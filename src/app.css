@@ -1,8 +1,9 @@
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Prevent horizontal overflow globally */
 html, body {
   @apply max-w-full overflow-x-hidden;
 }
+
