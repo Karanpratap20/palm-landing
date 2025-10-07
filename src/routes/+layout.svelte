@@ -9,6 +9,6 @@
 </svelte:head>
 
 <!-- Responsive layout wrapper -->
-<div class="max-w-screen-xl mx-auto px-4 overflow-x-hidden">
+<div class="max-w-full mx-auto px-4 overflow-x-hidden">
 	<slot />
 </div>
