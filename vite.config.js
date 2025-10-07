@@ -8,3 +8,9 @@ export default defineConfig({
     sveltekit(),
   ],
 });
+
+export default {
+  build: {
+    outDir: 'dist' // <-- This is your publish directory
+  }
+}
