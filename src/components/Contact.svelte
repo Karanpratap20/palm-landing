@@ -14,7 +14,7 @@
     /* Additional custom styles can go here if needed */
 </style>
 
-<section class="bg-gray-100 py-12 md:py-20">
+<section class="bg-gray-200 py-12 md:py-20">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
@@ -95,6 +95,13 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div class="bg-gray-200 pt-12 pb-4 md:pb-4">
+        <div class="text-center">
+            <a href="/contact" class="bg-blue-600 text-white font-bold text-lg py-3 px-10 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105 inline-block">
+                Contact Us Now
+            </a>
         </div>
     </div>
 </section>

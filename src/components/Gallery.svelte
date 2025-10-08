@@ -3,16 +3,29 @@
 
     // The list of images is now hardcoded directly within the component.
     const images = [
-        { src: '/hotel/balconyView.jpeg', alt: 'Hotel room with a view' },
-        { src: '/hotel/balconyView2.jpeg', alt: 'Hotel exterior with pool' },
-        { src: '/hotel/bathroom.jpeg', alt: 'Cozy hotel bedroom' },
-        { src: '/hotel/bathroom1.jpeg', alt: 'Modern hotel lobby' },
-        { src: '/hotel/delux.jpeg', alt: 'Breakfast served by the pool' },
-        { src: '/hotel/delux2.jpeg', alt: 'Hotel reception area' },
-        { src: '/hotel/corridor.jpg', alt: 'Hotel restaurant with elegant decor' },
-        { src: '/hotel/confere.jpg', alt: 'King size bed in a hotel room' },
-        { src: '/hotel/garden.JPG', alt: 'Hotel spa and wellness area' },
-        { src: '/hotel/pool.JPG', alt: 'Poolside cabanas at night' }
+        { src: '/hotel/Palm.jpg', alt: 'Hotel room with a view' },
+        { src: '/hotel/Palm2.jpg', alt: 'Hotel exterior with pool' },
+        { src: '/hotel/Pool.jpg', alt: 'Cozy hotel bedroom' },
+        { src: '/hotel/Garden.jpg', alt: 'Modern hotel lobby' },
+        { src: '/hotel/Reception.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Balcony.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Bathroom.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Conference.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Corridor.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Delux.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Delux2.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Delux3.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Delux4.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Garden2.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Garden3.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Garden4.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Garden5.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Garden6.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Palm3.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Palm4.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Pool2.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Pool3.jpg', alt: 'Breakfast served by the pool'},
+        { src: '/hotel/Restaurant.jpg', alt: 'Breakfast served by the pool'},
     ];
 
     // Reactive variables to manage the modal's state.

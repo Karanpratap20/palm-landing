@@ -13,8 +13,6 @@
 </script>
 
 <main class="flex flex-col">
-  <Header />
-
   <section id="gallery">
     <Gallery />
   </section>
@@ -50,6 +48,4 @@
   <section id="policies">
     <Policies />
   </section>
-
-  <Footer />
 </main>

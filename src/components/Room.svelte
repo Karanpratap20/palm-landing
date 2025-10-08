@@ -4,13 +4,13 @@
         {
             title: 'Deluxe Room',
             description: 'Our Deluxe Rooms offer a cozy and comfortable retreat ideal for solo travelers or couples. Guests can enjoy delicious global cuisine at our multi-cuisine restaurant, stay connected with high-speed WiFi, and unwind in our clean, well-maintained swimming pool. For indoor entertainment, the game room offers a selection of board games and table tennis. Convenient on-site parking ensures easy vehicle access.',
-            imageSrc: '/hotel/delux.jpeg',
+            imageSrc: '/hotel/Delux3.jpg',
             imageAlt: 'A beautifully decorated Deluxe Room with a large bed.'
         },
         {
             title: 'Super Deluxe Room',
             description: 'The Super Deluxe Rooms are designed for those seeking extra space and added amenities, making them ideal for families or business travelers. In addition to all the comforts of the Deluxe Rooms, guests benefit from access to a fully equipped conference hall for meetings and events. Thrill-seekers can take advantage of nearby adventure activities such as paragliding, boating, and other water sports.',
-            imageSrc: '/hotel/delux2.jpeg',
+            imageSrc: '/hotel/Delux2.jpg',
             imageAlt: 'A spacious and modern Super Deluxe Room with wooden accents.'
         }
     ];

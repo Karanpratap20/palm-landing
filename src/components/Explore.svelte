@@ -121,7 +121,7 @@
         </div>
     </div>
 
-    <div bind:this={slider} class="rm-scrollbar z-10 w-full overflow-x-auto mt-8 md:mt-10 snap-x snap-mandatory">
+    <div bind:this={slider} class="rm-scrollbar z-10 w-full overflow-x-auto mt-8 md:mt-10 pb-16 snap-x snap-mandatory">
         <div class="flex w-fit">
             {#each groupedItems as page}
                 <div class="w-screen flex-shrink-0 flex justify-center items-start gap-4 px-4">
@@ -163,4 +163,4 @@
     </div>
     {/if}
 </div>
-{/if}
+{/if} 

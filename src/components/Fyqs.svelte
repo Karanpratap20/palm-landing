@@ -55,7 +55,7 @@
             <!-- Left Column: Image -->
             <div class="w-full">
                 <img 
-                    src="/hotel/garden.JPG" 
+                    src="/hotel/Garden3.jpg" 
                     alt="A couple enjoying a meal on a balcony with a scenic mountain view at dusk"
                     class="rounded-2xl shadow-xl w-full h-full object-cover"
                 />
