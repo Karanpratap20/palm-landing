@@ -1,5 +1,4 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
 	import "../app.css";
     import Footer from '../components/Footer.svelte';
     import Header from '../components/Header.svelte';
@@ -11,8 +10,10 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
 </svelte:head>
+
 
 <div class="flex flex-col min-h-screen">
 	<!-- Header -->
