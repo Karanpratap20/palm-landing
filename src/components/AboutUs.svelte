@@ -4,7 +4,7 @@
         hotelName: 'The Palm Resort',
         tagline: 'Your Oasis of Tranquility in Bhimtal',
         // ⚠️ Replace with a high-quality, wide image for the banner
-        bannerImage: '/hotel/balconyView.jpeg', 
+        bannerImage: '/hotel/Palm2.jpg', 
         bannerAlt: 'A beautiful and luxurious hotel lobby with modern decor',
         
         mainTitle: 'Discover a Blend of Comfort, Luxury, and Nature',
