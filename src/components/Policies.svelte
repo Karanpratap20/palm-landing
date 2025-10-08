@@ -3,9 +3,9 @@
     const guestPolicies = [
         'No drugs and alcohol allowed on any hostel premises.',
         'Smoking and Vaping is not permitted inside the hostel premises besides the designated smoking areas.',
-        'Outside pets are not allowed in any Moustache Hostels.',
+        'Outside pets are not allowed in any Palm Hostels.',
         'Non Residents/Visitors are strictly not allowed on the hostel premises.',
-        'Moustache reserves the Right to admission.'
+        'Palm reserves the Right to admission.'
     ];
 
     const checkinPolicies = [
