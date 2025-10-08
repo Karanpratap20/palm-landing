@@ -1,7 +1,6 @@
 <script>
-    // No need for onMount in this new approach
-    
-    // List of amenity images
+    import { onMount } from "svelte";
+
     let ama = [
         { img: "/amenities/img1.png" }, { img: "/amenities/img2.png" },
         { img: "/amenities/img4.png" }, { img: "/amenities/img5.png" },
@@ -16,13 +15,10 @@
         { img: "/amenities/img22.png" }, { img: "/amenities/img23.png" }
     ];
 
-    // Duplicate the array once for a seamless loop.
     let infinite = [...ama, ...ama];
-
     let scrollContent;
-    let loadedImages = 0; // Counter for loaded images
+    let loadedImages = 0;
 
-    // This function runs the calculation logic
     function setupScrollAnimation() {
         if (!scrollContent) return;
 
@@ -34,15 +30,30 @@
         scrollContent.style.animationDuration = `${duration}s`;
     }
 
-    // This function is called by each image once it loads
     function handleImageLoad() {
         loadedImages++;
-        // When the number of loaded images equals the total number of images...
         if (loadedImages === infinite.length) {
-            // ...run the animation setup.
             setupScrollAnimation();
         }
     }
+
+    onMount(() => {
+        // Even if images are cached, ensure setup runs
+        const imgs = scrollContent?.querySelectorAll("img") || [];
+        let allLoaded = true;
+
+        imgs.forEach(img => {
+            if (!img.complete) {
+                allLoaded = false;
+                img.addEventListener("load", handleImageLoad);
+            }
+        });
+
+        // If already cached and loaded, start immediately
+        if (allLoaded) {
+            setupScrollAnimation();
+        }
+    });
 </script>
 
 <style>
