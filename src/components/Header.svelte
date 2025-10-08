@@ -32,7 +32,7 @@
 <header class="bg-white shadow-md sticky top-0 z-50">
   <div class="container mx-auto px-4 sm:px-6 flex items-center justify-between py-2">
 
-    <a href="#" on:click|preventDefault={scrollToTop} class="flex items-center gap-2">
+    <a href="/" on:click|preventDefault={scrollToTop} class="flex items-center gap-2">
       <img src="/logo/logo.png" alt="Site Logo" class="w-8 h-8 object-contain" />
     </a>
 

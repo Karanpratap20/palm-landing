@@ -1,6 +1,9 @@
 <script>
     import { onMount } from 'svelte';
 
+    // This tag lets us react to browser window size changes
+    let windowWidth = 0;
+
     // Data for the "Explore" cards.
     const exploreItems = [
         {
@@ -47,28 +50,39 @@
         }
     ];
 
-    // Reactive property to group items into pages of 3
+    // --- RESPONSIVE SLIDER LOGIC ---
+    let chunkSize = 1; // Default to 1 card per slide for mobile
+    $: {
+        // Use 768px as the breakpoint (Tailwind's 'md')
+        if (windowWidth >= 768) {
+            chunkSize = 3;
+        } else {
+            chunkSize = 1;
+        }
+    }
+
     let groupedItems = [];
     $: {
-        const chunkSize = 3;
         groupedItems = [];
         if (exploreItems.length > 0) {
             for (let i = 0; i < exploreItems.length; i += chunkSize) {
                 groupedItems.push(exploreItems.slice(i, i + chunkSize));
             }
         }
+		// Reset active index when grouping changes to avoid errors
+		if (activeIndex >= groupedItems.length) {
+			activeIndex = 0;
+		}
     }
 
     let slider;
     let pageWidth = 0;
     let activeIndex = 0;
 
-    onMount(() => {
-        if (slider) {
-            // Page width is the full width of the slider viewport
-            pageWidth = slider.offsetWidth;
-        }
-    });
+    // Make pageWidth reactive to window size changes
+    $: if (slider && windowWidth) {
+        pageWidth = slider.offsetWidth;
+    }
 
     function scrollToPage(index) {
         activeIndex = index;
@@ -80,6 +94,8 @@
         }
     }
 </script>
+
+<svelte:window bind:innerWidth={windowWidth} />
 
 <style>
     .hidden-escape-background {
@@ -105,15 +121,12 @@
         </div>
     </div>
 
-    <!-- This div is now the viewport for the entire slider -->
     <div bind:this={slider} class="rm-scrollbar z-10 w-full overflow-x-auto mt-8 md:mt-10 snap-x snap-mandatory">
-        <!-- This inner div holds all the pages and moves horizontally -->
         <div class="flex w-fit">
             {#each groupedItems as page}
-                <!-- Each page is a full-width container for up to 3 cards -->
                 <div class="w-screen flex-shrink-0 flex justify-center items-start gap-4 px-4">
                     {#each page as item}
-                        <div class="w-1/3 max-w-[400px] flex-shrink-0 relative h-[390px] 2xl:h-[420px]">
+                        <div class="w-11/12 md:w-1/3 max-w-[400px] flex-shrink-0 relative h-[390px] 2xl:h-[420px]">
                             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[250px] h-[250px] 2xl:w-[300px] 2xl:h-[300px] rounded-lg overflow-hidden shadow-lg">
                                 <img src={item.imageSrc} alt={item.imageAlt} class="w-full h-full object-cover" />
                                 <div class="absolute inset-2 border border-white/50 rounded-lg"></div>
@@ -136,7 +149,6 @@
         </div>
     </div>
     
-    <!-- Dots now loop over groupedItems -->
     {#if groupedItems.length > 1}
     <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {#each groupedItems as _, i}
