@@ -22,9 +22,7 @@
 
 	<!-- Main Page Content -->
 	<main class="flex-1">
-		<div class="max-w-screen-auto mx-auto px-4">
 			{@render children?.()}
-		</div>
 	</main>
 
 
