@@ -3,7 +3,3 @@
 :root {
   --header-height: 4rem;
 }
-
-html, body {
-  @apply w-full max-w-full overflow-x-hidden;
-}
