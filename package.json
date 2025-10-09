@@ -24,6 +24,7 @@
 		"vite": "^7.1.7"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.1.14"
+		"@tailwindcss/vite": "^4.1.14",
+		"modern-normalize": "^3.0.1"
 	}
 }

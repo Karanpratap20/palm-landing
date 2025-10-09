@@ -2,6 +2,7 @@
 	import "../app.css";
     import Footer from '../components/Footer.svelte';
     import Header from '../components/Header.svelte';
+	import 'modern-normalize'
 
 	// Import header and footer
 	
