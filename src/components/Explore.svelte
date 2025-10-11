@@ -8,47 +8,46 @@
 			label: 'Bhimtal Lake',
 			imageSrc: '/explore/bhimtal.jpg',
 			imageAlt: 'A panoramic view of Bhimtal Lake with the island in the center.',
-			description: 'Larger than the famous Naini Lake, Bhimtal is a serene destination known for its beautiful island aquarium. Enjoy boating, kayaking, or a peaceful walk along its shores.',
+			description: 'A calm and scenic lake larger than Naini Lake, famous for its island aquarium. Perfect spot for boating, kayaking, or relaxing by the water.',
 			link: '/explore/bhimtal-lake'
 		},
 		{
 			label: 'Naini Lake, Nainital',
 			imageSrc: '/explore/nainital.jpg',
-			imageAlt: 'Colorful boats floating on the crescent-shaped Naini Lake, surrounded by hills.',
-			description: 'The heart of Nainital, this beautiful crescent-shaped lake is a hub of activity. Go for a boat ride or simply stroll along The Mall Road enjoying the vibrant atmosphere.',
+			imageAlt: 'Colorful boats floating on Naini Lake, surrounded by hills.',
+			description: 'The heart of Nainital, surrounded by hills and a lively town. Enjoy a peaceful boat ride or an evening stroll on the Mall Road.',
 			link: '/explore/naini-lake'
 		},
 		{
 			label: 'Sattal Lake',
 			imageSrc: '/explore/sattal.jpg',
-			imageAlt: 'The cluster of seven interconnected freshwater lakes at Sattal.',
-			description: 'An interconnected group of seven freshwater lakes, Sattal is a tranquil paradise for nature lovers and birdwatchers, set amidst a dense forest of oak and pine trees.',
+			imageAlt: 'Seven interconnected freshwater lakes at Sattal.',
+			description: 'A cluster of seven serene lakes amidst pine forests. Ideal for birdwatching, photography, and enjoying the calmness of nature.',
 			link: '/explore/sattal-lake'
 		},
 		{
 			label: 'Kainchi Dham',
 			imageSrc: '/explore/kainchidham.jpg',
-			imageAlt: 'The serene and spiritual Kainchi Dham ashram complex.',
-			description: 'A spiritual ashram with a temple dedicated to the sage Neem Karoli Baba. This peaceful place on the banks of the Kosi river attracts devotees from all over the world.',
+			imageAlt: 'Kainchi Dham ashram complex.',
+			description: 'A peaceful ashram dedicated to Neem Karoli Baba, situated along the Kosi River. A must-visit place for spiritual seekers.',
 			link: '/explore/kainchi-dham'
 		},
 		{
 			label: 'Naina Devi Temple',
 			imageSrc: '/explore/nainadevi.jpg',
-			imageAlt: 'The sacred Naina Devi Temple on the northern shore of Naini Lake.',
-			description: 'Located on the northern shore of Naini Lake, this temple is a revered Shakti Peeth. It is believed that the eyes of the goddess Sati fell at this very spot.',
+			imageAlt: 'Naina Devi Temple on Naini Lake.',
+			description: 'A sacred temple located beside Naini Lake, dedicated to Goddess Naina Devi. It is one of the most revered Shakti Peeths in India.',
 			link: '/explore/naina-devi-temple'
 		},
 		{
 			label: "Camel's Back Road",
 			imageSrc: '/explore/camelsback.jpg',
-			imageAlt: "The natural rock formation that looks like a camel's hump.",
-			description: 'A peaceful 3-km stretch perfect for a morning or evening walk. It offers stunning views of the Himalayas and is named after a natural rock formation that looks like a camel\'s back.',
+			imageAlt: "Natural rock formation resembling a camel's hump.",
+			description: 'A scenic 3-km walkway offering stunning Himalayan views. The natural rock formation gives this peaceful trail its name.',
 			link: '/explore/camels-back-road'
 		}
 	];
 
-	// --- RESPONSIVE SLIDER LOGIC ---
 	let chunkSize = 1;
 	$: chunkSize = windowWidth >= 768 ? 3 : 1;
 
@@ -91,7 +90,7 @@
 </style>
 
 {#if exploreItems.length > 0}
-<div class="w-full flex flex-col relative bg-white h-[550px] sm:h-[580px] lg:h-[600px] xl:h-[650px] 2xl:h-[700px]">
+<div class="w-full flex flex-col relative bg-white h-[580px] sm:h-[600px] lg:h-[640px] xl:h-[700px] 2xl:h-[720px]">
 	<!-- Background -->
 	<div class="absolute bottom-0 left-0 right-0 h-1/2 z-0 hidden-escape-background"></div>
 
@@ -103,33 +102,40 @@
 			</p>
 			<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-fit flex items-center">
 				<div class="bg-blue-600 w-[15%] xl:w-[10%] h-6 xl:h-8"></div>
-				<p class="font-normal capitalize text-black text-2xl md:text-[28px] lg:text-[32px] xl:text-[42px] ml-4">
+				<!-- Increased text size here -->
+				<p class="font-semibold capitalize text-black text-3xl md:text-[36px] lg:text-[44px] xl:text-[54px] ml-4 tracking-wide">
 					There's More to Explore
 				</p>
 			</div>
 		</div>
 	</div>
 
+
 	<!-- Slider -->
-	<div bind:this={slider} class="rm-scrollbar z-10 w-full overflow-x-auto mt-8 md:mt-10 pb-16 snap-x snap-mandatory">
+	<div bind:this={slider} class="rm-scrollbar z-10 w-full overflow-x-auto mt-8 md:mt-10 pb-20 snap-x snap-mandatory"> <!-- Increased bottom padding -->
 		<div class="flex w-fit">
 			{#each groupedItems as page}
-				<div class="w-screen flex-shrink-0 flex justify-center items-start gap-6 px-4">
+				<div class="w-screen flex-shrink-0 flex justify-center items-start gap-10 md:gap-14 lg:gap-16 px-4">
 					{#each page as item}
 						<div class="w-11/12 md:w-1/3 max-w-[420px] flex-shrink-0 relative h-[410px] 2xl:h-[440px]">
 							<!-- Image -->
 							<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[270px] h-[270px] 2xl:w-[320px] 2xl:h-[320px] rounded-lg overflow-hidden shadow-lg">
-								<img src={item.imageSrc} alt={item.imageAlt} class="w-full h-full object-cover" />
-								<div class="absolute inset-2 border border-white/50 rounded-lg"></div>
+								<img src={item.imageSrc} alt={item.imageAlt} class="w-full h-full object-cover select-none pointer-events-none" draggable="false" />
+								<div class="absolute inset-2 border border-white/50 rounded-lg pointer-events-none"></div>
 							</div>
+
 							<!-- Ticket -->
-							<div class="absolute bottom-0 left-1/2 -translate-x-1/2 h-[170px] w-[350px] 2xl:w-[420px]">
-								<img src="/explore/ticket.png" alt="Ticket background" class="h-full w-full" />
+							<div class="absolute bottom-0 left-1/2 -translate-x-1/2 h-[190px] w-[350px] 2xl:w-[420px]">
+								<img src="/explore/ticket.png" alt="Ticket background" class="h-full w-full select-none pointer-events-none" draggable="false" />
+								
+								<!-- Label -->
 								<div class="absolute left-[-29px] top-1/2 -translate-y-1/2 h-[50%] w-[40%] -rotate-90 flex items-center justify-center">
-									<p class="text-blue-800 text-center font-medium text-m 2xl:text-base">{item.label}</p>
+									<p class="text-blue-900 text-center font-bold text-lg 2xl:text-xl">{item.label}</p>
 								</div>
+
+								<!-- Description -->
 								<div class="absolute right-2 top-1 h-[95%] w-[70%] flex flex-col justify-between p-2">
-									<div class="text-sm 2xl:text-base text-black font-light h-full max-h-[110px] overflow-hidden text-ellipsis">
+									<div class="text-[16px] 2xl:text-[18px] text-black font-medium leading-snug">
 										<p>{item.description}</p>
 									</div>
 								</div>
@@ -143,11 +149,11 @@
 
 	<!-- Navigation Dots -->
 	{#if groupedItems.length > 1}
-	<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+	<div class="absolute bottom-3 sm:bottom-5 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
 		{#each groupedItems as _, i}
 			<button
 				on:click={() => scrollToPage(i)}
-				class="h-3 w-3 rounded-full cursor-pointer transition-colors"
+				class="h-3 w-3 rounded-full cursor-pointer transition-all duration-300"
 				class:bg-blue-600={activeIndex === i}
 				class:bg-white={activeIndex !== i}
 				aria-label="Go to slide {i + 1}"
